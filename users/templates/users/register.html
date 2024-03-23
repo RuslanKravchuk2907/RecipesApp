@@ -1,4 +1,4 @@
-{% extends 'recipes/base.html' %}
+{% extends 'recipes/base.html' %} {% load crispy_forms_tags %}
 <!-- -->
 {% block content %}
 <div class="container">
@@ -6,7 +6,7 @@
         {% csrf_token %}
         <fieldset class="form-group">
             <legend class="border-bottom mb-4">Sign Up</legend>
-            {{ form }}
+            {{ form|crispy }}
         </fieldset>
         <div class="form-group py-3">
             <input class="btn btn-outline-primery" type="submit" value="Sign Up">
