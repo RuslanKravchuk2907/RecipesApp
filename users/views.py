@@ -5,12 +5,12 @@ from . import forms
 # Create your views here.
 def register(request):
     if request.method == "POST":
-        form = forms.UserRegisterFrom(request.POST)
+        form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f"{username}, you`re account has been created!")
             return redirect('recipes-home')
     else:
-        form = forms.UserRegisterFrom()
+        form = forms.UserRegisterForm()
     return render(request, 'users/register.html', {'form': form})
